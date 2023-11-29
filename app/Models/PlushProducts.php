@@ -10,7 +10,7 @@ class PlushProducts extends Model
     use HasFactory;
     protected $fillabel = ['name','price','type_id',];
 
-    public function plush_products(){
-        return $this->belongsTo(Status::class, 'plush_products_id', 'type_id');
+    public function material_type(){
+        return $this->belongsTo(Status::class, 'type_id', 'id');
     }
 }

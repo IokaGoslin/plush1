@@ -22,7 +22,7 @@ class PlushProducts extends Controller
         $materialtype = MaterialtypeName::collection(MaterialType::all());
 
         return $plushproducts;
-
+            
     }
 
 

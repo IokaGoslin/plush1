@@ -8,22 +8,19 @@ use Illuminate\Http\Request;
 class MaterialType extends Controller
 {
 
-    public function index()
+    public function index(Request $request){
+    if($request->id==null)
     {
-        $materialtype = MaterialTypeResources::collection(Event::all());
-    
-        return $materialtype;
+        $mateiraltype = new MaterialType;
+        $mateiraltype->name = $request->name;
+
+        $mateiraltype->save();
+
+        return $event;
     }
 
-
-    public function name()
-    {
-
-        $materialtype = MaterialtypeName::collection(MaterialType::all());
-
-        return $materialtype;
-
-        
+    else {
+        $mateiraltype = MaterialType::find($request->id);
+        }
     }
-
 }

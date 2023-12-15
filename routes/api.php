@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MaterialTypeController;
+use App\Http\Controllers\PlushProductsController;
+use App\Http\Controllers\SoldProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +27,8 @@ Route::prefix ('material_type')->group(function()  {
     Route::post('/', [MaterialTypeController::class, 'store']);
     Route::post('complete/{id}', [MaterialTypeController::class, 'complete']);
     Route::delete('/{id}', [MaterialTypeController::class, 'destroy']);
+    Route::put('/', [MaterialTypeController::class, 'update']);
+    Route::back('', [MaterialTypeController::class, 'back']);
 }); 
 
 Route::prefix ('plush_products')->group(function()  {
@@ -31,6 +36,12 @@ Route::prefix ('plush_products')->group(function()  {
     Route::get('/name', [PlushProductsController::class, 'name']);
     Route::get('/price', [PlushProductsController::class, 'price']);
     Route::get('/type_id', [PlushProductsController::class, 'type_id']);
+    Route::post('complete/{id}', [PlushProductsController::class, 'complete']);
+    Route::delete('/{id}', [PlushProductsController::class, 'destroy']);
+    Route::put('', [PlushProductsController::class, 'update']);
+    Route::back('',[PlushProductsController::class, 'back']);
+    
+    
 }); 
 
 Route::prefix ('sold_products')->group(function()  {
@@ -38,5 +49,9 @@ Route::prefix ('sold_products')->group(function()  {
     Route::get('/sum', [SoldProductsController::class, 'sum']);
     Route::get('/amount', [SoldProductsController::class, 'amount']);
     Route::get('/plush_products_id', [SoldProductsController::class, 'plush_products_id']);
+    Route::post('complete/{id}', [SoldProductsController::class, 'complete']);
+    Route::delete('/{id}', [SoldProductsController::class, 'destroy']);
+    Route::put('/', [SoldProductsController::class, 'update']);
+    Route::back('',[SoldProductsController::class, 'back']);
 }); 
 

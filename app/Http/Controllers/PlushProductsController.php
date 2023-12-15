@@ -8,53 +8,46 @@ use Illuminate\Http\Request;
 class PlushProducts extends Controller
 {
 
-    public function index()
-    {
-        $plushproducts = PlushProductsResource::collection(Event::all());
+
+
+    public function store(Request $request){
+
     
+
+    
+    if ($request->id == null)
+    {
+        $plushproducts = new MaterialType;
+        $plushproducts->name = $request->name;
+        $plushproducts->price = $request->price;
+        $plushproducts->type_id = $request->type_id;
+
+        $plushproducts->save();
+
         return $plushproducts;
     }
 
-
-    public function name()
-    {
-
-        $materialtype = MaterialtypeName::collection(MaterialType::all());
-
-        return $plushproducts;
-            
-    }
-
-
-    public function store(Request $request)
-    {
-
-        
-
-
-
-    }
-
-    public function show(kr $kr)
-    {
-
-    }
-
-    
-    public function edit(kr $kr)
-    {
-
-    }
-
-    
-    public function update(Request $request, kr $kr)
-    {
-
-    }
-
-
-    public function destroy(kr $kr)
-    {
-
+    else {
+        $plushproducts = MaterialType::find($request->id);
     }
 }
+
+    }
+
+
+    public function update(Request $request, PlushProducts $plushproducts)
+    {
+
+    
+
+    if($request->id == null);
+        {
+            $plushproducts = new PlushProducts;
+            $plushproducts->name = $request->name;
+            $plushproducts->price = $request->price;
+            $plushproducts->type_id = $request->type_id;
+        }
+    }
+
+
+
